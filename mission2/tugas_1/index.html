@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission 2 - Aini Diah</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Source+Serif+4:opsz,wght@8..60,600&family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/source-serif-pro" rel="stylesheet">            
+  <link href="https://fonts.cdnfonts.com/css/source-sans-pro" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+          <div class="row align-items-center py-3">
+            <div class="col-md-3">
+              <img src="assets/logo.png" alt="Logo" class="logo">
+            </div>
+        </div>
+        </div>
+     </header>
+    
+     <div class="container-fluid">
+        <div class="row py-4">
+          <div class="col-md-3">
+            <div class="card card1">
+              <img src="assets/product2.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Nirvana T-shirt</h5>
+                <p class="card-text">Rp.500.000</p>
+                <div class="col-md-8 mx-auto mt-3">
+                  <div class="d-flex align-items-center">
+                    <button class="btn btn-secondary btn-sm minus-btn">-</button>
+                    <input type="text" class="form-control quantity-input text-center" value="0" readonly>
+                    <button class="btn btn-secondary btn-sm plus-btn">+</button>
+                  </div>
+                </div>
+                <center>
+                  <a href="#" class="btn btn-primary add-to-cart" data-product="Nirvana T-shirt" data-image="product2.jpeg">Add To Cart</a>
+                </center>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card card2">
+              <img src="assets/product3 (2).jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Rock n Roll Tee</h5>
+                <p class="card-text">Rp.420.000</p>
+                <div class="col-md-8 mx-auto mt-3">
+                  <div class="d-flex align-items-center">
+                    <button class="btn btn-secondary btn-sm minus-btn">-</button>
+                    <input type="text" class="form-control quantity-input text-center" value="0" readonly>
+                    <button class="btn btn-secondary btn-sm plus-btn">+</button>
+                  </div>
+                </div>
+                <center>
+                  <a href="#" class="btn btn-primary add-to-cart" data-product="Rock n Roll Tee" data-image="product3 (2).jpg">Add To Cart</a>
+                </center>
+              </div>
+            </div>
+          </div>
+          <!-- Tambahkan produk lainnya di sini dengan atribut data-product dan data-image yang sesuai -->
+          <div class="col-md-3">
+            <div class="card card3">
+              <img src="assets/product3.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Guns N Roses Festival</h5>
+                <p class="card-text">Rp.620.000</p>
+                <div class="col-md-8 mx-auto mt-3">
+                  <div class="d-flex align-items-center">
+                    <button class="btn btn-secondary btn-sm minus-btn">-</button>
+                    <input type="text" class="form-control quantity-input text-center" value="0" readonly>
+                    <button class="btn btn-secondary btn-sm plus-btn">+</button>
+                  </div>
+                </div>
+                <center>
+                  <a href="#" class="btn btn-primary add-to-cart" data-product="Guns N Roses Festival" data-image="product3.jpeg">Add To Cart</a>
+                </center>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card card4">
+              <img src="assets/product8.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">MCR Tee</h5>
+                <p class="card-text">Rp.350.000</p>
+                <div class="col-md-8 mx-auto mt-3">
+                  <div class="d-flex align-items-center">
+                    <button class="btn btn-secondary btn-sm minus-btn">-</button>
+                    <input type="text" class="form-control quantity-input text-center" value="0" readonly>
+                    <button class="btn btn-secondary btn-sm plus-btn">+</button>
+                  </div>
+                </div>
+                <center>
+                  <a href="#" class="btn btn-primary add-to-cart" data-product="MCR Tee" data-image="product8.png">Add To Cart</a>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="container" id="container-center">
+        <div class="row py-4">
+            <div class="col-md-12">
+                <h2 id="judulCart">My Cart</h2>
+                <div id="cart-items">
+                    <!-- Item keranjang akan ditambahkan di sini -->
+                </div>
+                <div class="cart-summary">
+                    <div>
+                        <p>Total Harga Produk <span id="total-price">Rp 0</span></p>
+                        <p>Pajak (11%) <span id="tax">Rp 0</span></p>
+                    </div>
+                    <div>
+                        <p>Total Bayar <span id="total-payment">Rp 0</span></p>
+                    </div>
+                    <button class="btn btn-primary" id="reset-cart">Reset Cart</button>
+                    <!-- Tombol "Bayar" -->
+                    <button class="btn btn-primary" id="pay-button" data-toggle="modal" data-target="#receiptModal">Bayar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <div class="modal fade" id="receiptModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Struk Belanja</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"> <!-- Ini adalah elemen yang akan diisi oleh konten struk belanja -->
+                <!-- Konten struk belanja akan dimasukkan di sini -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+  
+    
+    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

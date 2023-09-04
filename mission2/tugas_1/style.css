@@ -1,0 +1,206 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+  
+.logo {
+      width: 180px;
+      height: auto;
+}
+
+header{
+      background-color: #F3F4F6;
+}
+
+.container-fluid{
+    padding-left: 50px;
+    margin-left: 45px;
+}
+
+.card{
+    width: 18rem;
+    background-color: #23103A;
+    color : white;
+    border: none;
+    border-radius: 30px;
+}
+.card img{
+    width: 100%; 
+    height: 358px;
+}
+
+.card2{
+    margin-left: -30px;
+}
+
+.card3{
+    margin-left: -55px;
+}
+
+.card4{
+    margin-left: -77px;
+}
+
+.card-title{
+    text-align: center;
+    font-weight: bolder;
+    font-family: "Poppins";
+}
+
+.card-text{
+    text-align: center;
+}
+.quantity-input{
+    width: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 0%;
+}
+.minus-btn{
+    width: 10rem;
+    height: 40px;
+    background-color: #A0204C;
+    border-color: #A0204C;
+}
+
+.plus-btn{
+    width: 10rem;
+    height: 40px;
+    background-color:#A0204C;
+    border-color:  #A0204C;
+}
+
+.btn-primary{
+    margin-top: 20px;
+    background-color:  #FD8D14;
+    border-color:  #FD8D14;
+}
+#container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+#pay-button{
+    border : none;
+}
+
+#judulCart{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+/* Gaya untuk elemen gambar produk di keranjang */
+.cart-product-image {
+    max-width: 80px; /* Atur lebar maksimum gambar */
+    float: left; /* Pindahkan gambar ke kiri */
+    margin-right: 10px; /* Beri sedikit jarak dari elemen lain */
+    width: 80px;
+}
+
+/* Gaya untuk kontainer informasi produk */
+.product-info-container {
+    float: left; /* Pindahkan kontainer informasi produk ke kiri */
+}
+
+/* Gaya untuk elemen nama produk di keranjang */
+.cart-product-name {
+    font-weight: bold; /* Beri tebal pada nama produk jika diperlukan */
+    margin-bottom: 5px; /* Beri sedikit jarak dari elemen lain */
+}
+
+/* Gaya untuk elemen harga produk di keranjang */
+.cart-product-price {
+    color: #666; /* Warna teks harga produk */
+    margin-bottom: 5px; /* Beri sedikit jarak dari elemen lain */
+    margin-top: -40px;
+    margin-left: 300px;
+}
+
+/* Gaya untuk elemen kuantitas di keranjang */
+.cart-quantity {
+    color: #666; /* Warna teks kuantitas */
+    margin-bottom: 10px; /* Beri sedikit jarak dari elemen lain */
+}
+
+.remove-from-cart{
+    margin-top: -70px;
+    margin-left: 400px;
+}
+
+.cart-summary{
+    margin-top: 50px;
+}
+.cart-summary p {
+    margin-bottom: 10px;
+    margin-left: 200px;
+}
+  
+.cart-summary span {
+    margin-left: 50px; /* Ubah angka sesuai dengan jarak yang Anda inginkan */
+}
+
+p span#tax {
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+p span#total-payment {
+    margin-top: 10px;
+    margin-left: 106px;
+}
+
+#pay-button{
+    margin-left: 20px;
+    background-color: green;
+    width: 20%;
+}
+
+#reset-cart{
+    background-color: red;
+    border-color: red;
+    margin-left: 200px;
+}
+
+.receipt-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .product-info {
+    flex-grow: 1;
+  }
+  
+  .product-name {
+    font-weight: bold;
+  }
+  
+  .product-price {
+    color: #666;
+  }
+
+/* Style untuk label total */
+.total-label {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: right;
+  }
+  
+  /* Style untuk harga total */
+  .total-price {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: right;
+  }
+  
+  /* Style untuk label pajak */
+  .tax-label {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: right;
+  }
+   
+  
