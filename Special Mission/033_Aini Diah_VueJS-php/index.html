@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+	<html lang="en">
+	  <head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Aini Diah</title>
+		<link
+		  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+		  rel="stylesheet"
+		  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+		  crossorigin="anonymous"
+		/>
+	  </head>
+	  <body>
+		<!-- semua komponen yang ada di dalam id="crudApp" adalah vue -->
+		<div class="container mt-4" id="crudApp">
+		  <h2 class="alert alert-success text-center">
+			Latihan CRUD dengan menggunakan Vue Js dan MySQL
+		  </h2>
+		  <div class="card">
+			<div class="card-header">
+			  <!-- tombol ini jika diklik maka akan menampilkan modal tambah -->
+			  <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modaltambah">Tambah Data</button>
+			</div>
+			<div class="card-body">
+			  <table class="table table-striped">
+				<thead>
+				  <tr class="bg-dark text-white">
+					<th>No</th>
+					<th>Nama Depan</th>
+					<th>Nama Belakang</th>
+					<th>Edit</th>
+					<th>Hapus</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <!-- v-for digunakan untuk melakukna looping, seperti foreach pada php  -->
+				  <!-- allData adalah variabel yang berisi data dari database, 
+				  bagaimana allData bisa menampung data bisa kalian lihat pada script fetchAllData di bagian bawah  -->
+				  <tr v-for="(item, index) in allData" :key="index">
+					<td>{{ index+1 }}</td>
+					<td>{{ item.first_name }}</td>
+					<td>{{ item.last_name }}</td>
+					<td>
+					  <button class="btn btn-sm btn-success">Edit</button>
+					</td>
+					<td>
+					  <button class="btn btn-sm btn-danger">Hapus</button>
+					</td>
+				  </tr>
+				</tbody>
+			  </table>
+			</div>
+		  </div>
+		  <!-- di bawah ini adalah modal tambah  -->
+		  <div class="modal fade" id="modaltambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel">Form Tambah</h5>
+				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				  <div class="modal-body">
+					  <div class="form-group mb-2">
+						  <label for="">Nama Depan</label>
+						  <input type="text" class="form-control" v-model="first_name" required>
+					  </div>
+					  <div class="form-group">
+						  <label for="">Nama Belakang</label>
+						  <input type="text" class="form-control" v-model="last_name" required>
+					  </div>
+				  </div>
+				  <div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					  <button class="btn btn-primary" @click="simpanData">Kirim</button>
+				  </div>
+			  </div>
+			</div>
+		  </div>
+	
+		  <!-- di bawah ini adalah modal edit  -->
+		</div>
+	
+	
+		<script
+		  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		  crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script>
+		  // inisialisasi vue 
+		  var app = new Vue({
+			el: "#crudApp",
+			data: {
+			  allData: "",
+			  first_name: "",
+			  last_name: "",
+			  id: "",
+			},
+			methods: {
+	
+			  //metode untuk menampilkan data
+			  fetchAllData: function () {
+				axios
+				  .post("action.php", {
+					action: "fetchall",
+				  })
+				  .then(function (response) {
+					// respon adalah data yang berhasil diambil dari database
+					// respon.data adalah data yang dimasukan ke dalam variabel allData
+					// allData akan dilooping di tabel nantinya
+					app.allData = response.data;
+				  });
+			  },
+	
+			  //metode untuk insert data
+			  simpanData: function(){
+				if(app.first_name == '' || app.last_name == ''){
+					alert('isi semua data terlebih dahulu!');
+				}else{                
+					axios
+						.post("action.php", {
+							action: "insert",
+							first_name: app.first_name,
+							last_name: app.last_name
+						})
+						.then(function (response){
+		
+							//memperbarui data
+							app.fetchAllData()
+		
+							//menutup modal
+							$("#modaltambah").modal("hide"); 
+		
+							//mengosongkan isi form
+							app.first_name = ''
+							app.last_name = ''
+						});
+				}
+			  },
+	
+			},
+			// semua yang ada di dalam creadted akan dijalankan saat pertama kali document dimuat 
+			created: function(){
+			  this.fetchAllData()
+			}
+		  });
+        </script>
+    </body>
+</html>
+	
